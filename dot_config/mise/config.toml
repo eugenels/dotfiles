@@ -1,0 +1,12 @@
+[tools]
+chezmoi = "latest"
+neovim = "latest"
+lazygit = "latest"
+ripgrep = "latest"
+starship = "latest"
+zoxide = "latest"
+zellij = "latest"
+fzf = "latest"
+bat = "latest"
+lsd = "latest"
+fd = "latest"
