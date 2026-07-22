@@ -1,0 +1,4 @@
+md.obsidian.Obsidian
+dev.zed.Zed
+org.zotero.Zotero
+us.zoom.Zoom

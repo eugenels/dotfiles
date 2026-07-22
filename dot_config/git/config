@@ -1,0 +1,9 @@
+[user]
+	name = Eugene Lysiuchenko
+	email = 79919431+eugenels@users.noreply.github.com
+
+[init]
+	defaultBranch = main
+
+[push]
+	autoSetupRemote = true
