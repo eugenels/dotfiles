@@ -1,0 +1,16 @@
+version = 1
+
+[install]
+ripgrep.pkg-path = "ripgrep"
+fd.pkg-path = "fd"
+bat.pkg-path = "bat"
+fzf.pkg-path = "fzf"
+jq.pkg-path = "jq"
+eza.pkg-path = "eza"
+gh.pkg-path = "gh"
+yazi.pkg-path = "yazi"
+zoxide.pkg-path = "zoxide"
+direnv.pkg-path = "direnv"
+
+[options]
+systems = ["aarch64-darwin", "x86_64-linux"]

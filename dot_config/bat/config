@@ -1,0 +1,5 @@
+--theme="auto:system"
+--theme-dark="gruvbox-dark"
+--theme-light="gruvbox-light"
+--style="full"
+--pager="less -RFK"
