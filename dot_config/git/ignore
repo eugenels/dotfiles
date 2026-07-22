@@ -1,0 +1,16 @@
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+*~
+.directory
+.Trash-*
+.nfs*
+*.swp
+*.swo
+.idea/
+.vscode/
+.zed/
+.env
