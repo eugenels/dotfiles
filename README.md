@@ -5,6 +5,7 @@
 Linux:
 ```bash
 sudo apt update && sudo apt install -y git curl fish
+mkdir -p ~/.local/bin
 curl -sS https://starship.rs/install.sh | sh -s -- -b "$HOME/.local/bin" -y
 # flox: https://flox.dev/docs/install-flox/
 ```
@@ -26,7 +27,7 @@ command -v fish | sudo tee -a /etc/shells
 chsh -s "$(command -v fish)"
 
 # flox default env
-flox init -D
+flox init -d "$HOME"
 flox edit -d "$HOME" -f ~/.config/flox/manifest.toml
 ```
 

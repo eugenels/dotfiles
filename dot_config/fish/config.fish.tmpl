@@ -10,7 +10,7 @@ if status is-interactive
     set -g fish_greeting
 
     if type -q flox; and test -d ~/.flox
-        flox activate -D -m run | source
+        flox activate -d $HOME -m run | source
     end
 
     if type -q starship
