@@ -1,5 +1,10 @@
+# Services (run headless via launchd / brew services)
+brew "syncthing", restart_service: :changed
+
+# GUI apps
 cask "obsidian"
 cask "zed"
 cask "zotero"
 cask "zoom"
 cask "raycast"
+cask "ghostty"

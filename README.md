@@ -42,6 +42,8 @@ xargs flatpak install --user -y flathub < ~/.local/share/chezmoi/packages/flatpa
 macOS:
 ```bash
 brew bundle --file="$HOME/.local/share/chezmoi/packages/Brewfile"
+# syncthing starts as a launchd service automatically (restart_service);
+# web UI at http://localhost:8384
 ```
 
 ## Update
