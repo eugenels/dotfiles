@@ -6,13 +6,12 @@ if test -x /opt/homebrew/bin/brew
 end
 
 fish_add_path ~/.local/bin
+if type -q flox; and test -d ~/.flox
+    flox activate -d $HOME -m run | source
+end
 
 if status is-interactive
     set -g fish_greeting
-
-    if type -q flox; and test -d ~/.flox
-        flox activate -d $HOME -m run | source
-    end
 
     if type -q starship
         starship init fish | source
