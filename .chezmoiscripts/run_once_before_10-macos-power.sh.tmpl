@@ -1,0 +1,28 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/usr/bin/env bash
+#
+# Power settings. These need sudo, so this is a `before` script — the password
+# prompt happens at the start of the apply rather than in the middle of it.
+#
+# run_once_: fires on first apply per machine, and again only if this file changes.
+#
+set -euo pipefail
+
+echo "==> Power settings (needs sudo)"
+
+if ! sudo -v 2>/dev/null; then
+    echo "    skipped — no sudo available (non-interactive shell?)"
+    echo "    rerun later with:"
+    echo "      chezmoi state delete-bucket --bucket=scriptState && chezmoi apply"
+    exit 0
+fi
+
+# Low Power Mode on battery.
+sudo pmset -b lowpowermode 1
+
+# Display sleep: 5 min on battery, 10 min on mains.
+sudo pmset -b displaysleep 5
+sudo pmset -c displaysleep 10
+
+echo "    done"
+{{- end -}}
