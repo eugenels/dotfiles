@@ -1,9 +1,10 @@
 set -gx EDITOR nano
 set -gx VISUAL nano
 
-{{ if eq .chezmoi.os "darwin" -}}
-/opt/homebrew/bin/brew shellenv fish | source
-{{ end -}}
+if test -x /opt/homebrew/bin/brew
+    /opt/homebrew/bin/brew shellenv fish | source
+end
+
 fish_add_path ~/.local/bin
 
 if status is-interactive

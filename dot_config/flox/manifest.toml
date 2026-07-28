@@ -11,6 +11,7 @@ gh.pkg-path = "gh"
 yazi.pkg-path = "yazi"
 zoxide.pkg-path = "zoxide"
 direnv.pkg-path = "direnv"
+starship.pkg-path = "starship"
 
 [options]
 systems = ["aarch64-darwin", "x86_64-linux"]

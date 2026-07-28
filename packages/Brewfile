@@ -2,9 +2,9 @@
 brew "syncthing", restart_service: :changed
 
 # GUI apps
-cask "obsidian"
 cask "zed"
-cask "zotero"
+cask "flox"
 cask "zoom"
-cask "raycast"
-cask "ghostty"
+cask "slack"
+cask "zotero"
+cask "obsidian"
