@@ -4,9 +4,8 @@
 # Opinionated macOS defaults for software development.
 #
 # run_onchange_: chezmoi re-runs this whenever the rendered contents change,
-# so editing the list below is enough — no need to remember to run anything.
-# Everything here is idempotent and needs no sudo (power settings are manual,
-# see BOOTSTRAP.md step 9).
+# so editing the list below is enough - no need to remember to run anything.
+# Everything here is idempotent and needs no sudo (power settings are manual).
 #
 set -euo pipefail
 
@@ -89,9 +88,6 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 defaults write -g com.apple.trackpad.scaling -float 2.5
 defaults write -g com.apple.mouse.scaling -float 2.5
 
-# NOTE: Three Finger Drag is no longer reliably settable via defaults.
-# Accessibility → Pointer Control → Trackpad Options → Use trackpad for dragging
-
 ################################################################################
 # Save / Print dialogs
 ################################################################################
@@ -126,7 +122,6 @@ cat <<'MANUAL'
     Battery        charge limit 95%
     Display        Night Shift, sunset to sunrise
     Wallpaper      set preferred
-    Accessibility  enable Three Finger Drag
     Spotlight      disable "Show Related Content"
     Menu Bar       prune unwanted items
 
