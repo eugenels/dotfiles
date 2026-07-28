@@ -1,0 +1,20 @@
+{{- if eq .chezmoi.os "linux" -}}
+#!/usr/bin/env bash
+#
+# Keeps Flatpak apps in sync with packages/flatpak.txt.
+#
+# flatpak.txt hash: {{ include "packages/flatpak.txt" | sha256sum }}
+#
+set -euo pipefail
+
+if ! command -v flatpak >/dev/null 2>&1; then
+    echo "==> flatpak: skipped (not installed)"
+    exit 0
+fi
+
+echo "==> flatpak install"
+flatpak remote-add --user --if-not-exists flathub \
+    https://flathub.org/repo/flathub.flatpakrepo
+xargs flatpak install --user -y flathub \
+    < "{{ .chezmoi.sourceDir }}/packages/flatpak.txt"
+{{- end -}}

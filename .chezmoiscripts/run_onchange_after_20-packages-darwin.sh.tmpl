@@ -1,0 +1,19 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/usr/bin/env bash
+#
+# Keeps installed packages in sync with packages/Brewfile.
+# The hash below is what makes chezmoi re-run this: edit the Brewfile and the
+# rendered script changes, so the next `chezmoi apply` reinstalls.
+#
+# Brewfile hash: {{ include "packages/Brewfile" | sha256sum }}
+#
+set -euo pipefail
+
+if ! command -v brew >/dev/null 2>&1; then
+    echo "==> brew bundle: skipped (brew not on PATH)"
+    exit 0
+fi
+
+echo "==> brew bundle"
+brew bundle --file="{{ .chezmoi.sourceDir }}/packages/Brewfile"
+{{- end -}}
