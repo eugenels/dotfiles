@@ -1,6 +1,10 @@
 set -gx EDITOR nano
 set -gx VISUAL nano
 
+if type -q gh
+    set -gx GITHUB_TOKEN (gh auth token 2>/dev/null)
+end
+
 if test -x /opt/homebrew/bin/brew
     /opt/homebrew/bin/brew shellenv fish | source
 end
