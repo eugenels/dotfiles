@@ -1,5 +1,6 @@
 # Services (run headless via launchd / brew services)
 brew "syncthing", restart_service: :changed
+brew "fish"
 
 # GUI apps
 cask "zed"
