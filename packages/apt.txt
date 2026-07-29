@@ -1,0 +1,4 @@
+git
+curl
+fish
+syncthing

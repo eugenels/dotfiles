@@ -1,0 +1,26 @@
+{{- if eq .chezmoi.os "linux" -}}
+#!/usr/bin/env bash
+#
+# Enables the Syncthing user service, matching the launchd auto-start that
+# `restart_service: :changed` gives it in the Brewfile on macOS.
+#
+# run_onchange_ pinned to the apt.txt hash: re-runs if syncthing is added or
+# removed from packages/apt.txt. Harmless no-op once already enabled.
+#
+# apt.txt hash: {{ include "packages/apt.txt" | sha256sum }}
+#
+set -euo pipefail
+
+if ! command -v syncthing >/dev/null 2>&1; then
+    echo "==> syncthing: skipped (not installed)"
+    exit 0
+fi
+
+if ! command -v systemctl >/dev/null 2>&1; then
+    echo "==> syncthing: skipped (no systemd)"
+    exit 0
+fi
+
+echo "==> syncthing: enabling user service"
+systemctl --user enable --now syncthing.service
+{{- end -}}

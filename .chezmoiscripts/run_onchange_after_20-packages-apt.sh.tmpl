@@ -1,0 +1,25 @@
+{{- if eq .chezmoi.os "linux" -}}
+#!/usr/bin/env bash
+#
+# Keeps installed packages in sync with packages/apt.txt. This is the Linux
+# equivalent of the Brewfile: base CLI tools that need to exist before flox
+# and fish can take over.
+#
+# apt.txt hash: {{ include "packages/apt.txt" | sha256sum }}
+#
+set -euo pipefail
+
+if ! command -v apt-get >/dev/null 2>&1; then
+    echo "==> apt: skipped (not a Debian-based system)"
+    exit 0
+fi
+
+if ! sudo -v 2>/dev/null; then
+    echo "==> apt: skipped (no sudo available)"
+    exit 0
+fi
+
+echo "==> apt install"
+sudo apt-get update
+xargs sudo apt-get install -y < "{{ .chezmoi.sourceDir }}/packages/apt.txt"
+{{- end -}}
