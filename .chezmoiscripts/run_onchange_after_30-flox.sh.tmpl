@@ -13,6 +13,11 @@ if ! command -v flox >/dev/null 2>&1; then
     exit 0
 fi
 
+# flox.toml itself is unmanaged (flox rewrites it with machine-specific paths),
+# so seed the one setting we care about here. Idempotent.
+echo "==> flox config"
+flox config --set disable_metrics true
+
 if [ ! -d "$HOME/.flox" ]; then
     echo "==> flox init"
     flox init -d "$HOME"
