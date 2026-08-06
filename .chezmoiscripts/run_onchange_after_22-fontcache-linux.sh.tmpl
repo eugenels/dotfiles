@@ -1,0 +1,18 @@
+{{- if eq .chezmoi.os "linux" -}}
+#!/usr/bin/env bash
+#
+# Rebuilds the fontconfig cache after chezmoi extracts the font externals.
+# macOS needs no equivalent: Core Text picks up ~/Library/Fonts directly.
+#
+# externals hash: {{ include ".chezmoiexternal.toml.tmpl" | sha256sum }}
+#
+set -euo pipefail
+
+if ! command -v fc-cache >/dev/null 2>&1; then
+    echo "==> fonts: skipped (no fontconfig)"
+    exit 0
+fi
+
+echo "==> fonts: rebuilding fontconfig cache"
+fc-cache -f "${HOME}/.local/share/fonts"
+{{- end -}}

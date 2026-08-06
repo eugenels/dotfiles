@@ -43,7 +43,21 @@ flox init -d "$HOME"
 flox edit -d "$HOME" -f ~/.config/flox/manifest.toml
 ```
 
-## 3. GUI apps
+## 3. Fonts
+
+JetBrainsMono Nerd Font is installed automatically on both platforms — via the
+`font-jetbrains-mono-nerd-font` cask on macOS, and via `.chezmoiexternal.toml`
+on Linux (Nerd Fonts aren't in the apt repos, so they can't go in `apt.txt`).
+
+The Linux external is version-pinned and checksummed. To bump it, edit the URL
+in `.chezmoiexternal.toml.tmpl` and refresh the hash:
+
+```bash
+curl -sSL <new-url> | sha256sum
+chezmoi apply --refresh-externals
+```
+
+## 4. GUI apps
 
 Also applied automatically by `init --apply`; shown here for manual re-runs.
 
@@ -62,7 +76,7 @@ brew bundle --file="$HOME/.local/share/chezmoi/packages/Brewfile"
 # web UI at http://localhost:8384
 ```
 
-## Update
+## 5. Update
 
 ```bash
 chezmoi update

@@ -1,0 +1,18 @@
+{{- if eq .chezmoi.os "linux" -}}
+# Nerd Fonts aren't packaged in Debian/Ubuntu (apt's fonts-jetbrains-mono is
+# the unpatched upstream font), so they can't live in packages/apt.txt. This
+# is the Linux equivalent of the Brewfile's font-jetbrains-mono-nerd-font cask.
+#
+# To bump: change the version in the URL and update checksum.sha256 with
+#   curl -sSL <url> | sha256sum
+[".local/share/fonts/JetBrainsMonoNerdFont"]
+    type = "archive"
+    url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.0/JetBrainsMono.tar.xz"
+    checksum.sha256 = "0227b220360a6f819b9ead92343e8112b34733054782561af50cfba1e8afab63"
+    # Terminal/editor variant only: monospaced icons, with ligatures.
+    # Drop the "Mono" for proportional icons, or use "JetBrainsMono*.ttf" for all 98.
+    include = ["JetBrainsMonoNerdFontMono-*.ttf"]
+    exact = true
+    # URL is version-pinned, so never re-download once cached.
+    refreshPeriod = "8760h"
+{{- end -}}
