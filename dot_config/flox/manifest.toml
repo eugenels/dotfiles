@@ -14,6 +14,8 @@ direnv.pkg-path = "direnv"
 starship.pkg-path = "starship"
 claude-code.pkg-path = "claude-code"
 pi-coding-agent.pkg-path = "pi-coding-agent"
+herdr.pkg-path = "herdr"
+azure-cli.pkg-path = "azure-cli"
 
 [options]
 systems = ["aarch64-darwin", "x86_64-linux"]
