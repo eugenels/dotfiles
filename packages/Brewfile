@@ -3,6 +3,7 @@ brew "syncthing", restart_service: :changed
 brew "fish"
 
 # GUI apps
+cask "ghostty"
 cask "zed"
 cask "flox"
 cask "zoom"

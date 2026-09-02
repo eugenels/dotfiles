@@ -1,0 +1,15 @@
+# Ghostty configuration
+# Docs: https://ghostty.org/docs/config/reference
+
+font-family = JetBrainsMono Nerd Font Mono
+font-size = 13
+
+# Appearance
+# Follows the macOS system appearance: Gruvbox Light in light mode,
+# Gruvbox Dark in dark mode. Variants: "Gruvbox Dark Hard" / "Gruvbox Light Hard".
+theme = light:Gruvbox Light,dark:Gruvbox Dark
+window-padding-x = 8
+window-padding-y = 8
+
+# macOS
+macos-option-as-alt = true
