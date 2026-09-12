@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#
+# Regenerates herdr's Claude Code integration: ~/.claude/hooks/herdr-agent-state.sh
+# and the SessionStart hook in ~/.claude/settings.json. herdr owns and
+# version-stamps both, so they are regenerated rather than managed.
+#
+# Re-runs whenever the home flox manifest changes, which is when herdr may
+# have been upgraded.
+#
+# manifest hash: {{ include "dot_config/flox/manifest.toml" | sha256sum }}
+#
+set -euo pipefail
+
+if ! command -v flox >/dev/null 2>&1 || [ ! -d "$HOME/.flox" ]; then
+    echo "==> herdr integrations: skipped (home flox env missing)"
+    exit 0
+fi
+
+echo "==> herdr integrations"
+flox activate -d "$HOME" -m run -- herdr integration install claude
