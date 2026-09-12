@@ -1,4 +1,4 @@
-version = 1
+schema-version = "1.15.0"
 
 [install]
 ripgrep.pkg-path = "ripgrep"
@@ -6,6 +6,7 @@ fd.pkg-path = "fd"
 bat.pkg-path = "bat"
 fzf.pkg-path = "fzf"
 jq.pkg-path = "jq"
+jq.outputs = "all"
 eza.pkg-path = "eza"
 gh.pkg-path = "gh"
 yazi.pkg-path = "yazi"
@@ -15,10 +16,13 @@ starship.pkg-path = "starship"
 claude-code.pkg-path = "claude-code"
 pi-coding-agent.pkg-path = "pi-coding-agent"
 herdr.pkg-path = "herdr"
+herdr.outputs = "all"
 azure-cli.pkg-path = "azure-cli"
+azure-cli.outputs = "all"
+nodejs.pkg-path = "nodejs"
 
 [options]
-systems = ["aarch64-darwin", "x86_64-linux"]
+systems = ["aarch64-darwin", "x86_64-linux", "aarch64-linux"]
 
 [options.allow]
 unfree = true
