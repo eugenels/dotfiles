@@ -1,5 +1,4 @@
 README.md
-setup.sh
 packages
 
 {{ if ne .chezmoi.os "darwin" -}}
