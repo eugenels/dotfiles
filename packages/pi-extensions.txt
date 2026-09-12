@@ -1,0 +1,7 @@
+# pi extensions, replayed with `pi install` by 40-pi-extensions.sh.
+npm:@gotgenes/pi-anthropic-auth
+npm:@gotgenes/pi-github-tools
+npm:pi-web-access
+npm:pi-subagents
+npm:pi-pr-status
+npm:pi-herdr
