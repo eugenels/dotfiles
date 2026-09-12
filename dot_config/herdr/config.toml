@@ -1,8 +1,13 @@
 onboarding = false
+
 [ui]
 agent_panel_sort = "spaces"
 show_agent_labels_on_pane_borders = true
 
 [theme]
-name = "gruvbox-light"
-auto_switch = false
+# Follows the terminal's light/dark appearance, like Ghostty and Zed.
+# Picking a theme by hand in Settings turns auto_switch back off.
+name = "gruvbox"
+auto_switch = true
+light_name = "gruvbox-light"
+dark_name = "gruvbox"

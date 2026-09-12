@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 #
-# Regenerates herdr's Claude Code integration: ~/.claude/hooks/herdr-agent-state.sh
-# and the SessionStart hook in ~/.claude/settings.json. herdr owns and
-# version-stamps both, so they are regenerated rather than managed.
+# Installs herdr's agent-state hooks. Not managed as files: herdr generates
+# and version-stamps them, so a committed copy would pin a version it later
+# replaces.
 #
-# Re-runs whenever the home flox manifest changes, which is when herdr may
-# have been upgraded.
+# herdr refuses a target whose agent is not installed (codex, until it is),
+# so failures are reported per target instead of aborting the apply.
+# Hashed against the flox manifest because that is when agents get added
+# or herdr gets upgraded.
 #
 # manifest hash: {{ include "dot_config/flox/manifest.toml" | sha256sum }}
 #
@@ -17,4 +19,8 @@ if ! command -v flox >/dev/null 2>&1 || [ ! -d "$HOME/.flox" ]; then
 fi
 
 echo "==> herdr integrations"
-flox activate -d "$HOME" -m run -- herdr integration install claude
+for target in claude pi codex; do
+    echo "    $target"
+    flox activate -d "$HOME" -m run -- herdr integration install "$target" \
+        || echo "    ! $target: not installed, skipped"
+done
