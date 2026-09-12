@@ -2,6 +2,11 @@ README.md
 setup.sh
 packages
 
+{{ if ne .chezmoi.os "darwin" -}}
+# Ghostty is not installed on Linux.
+.config/ghostty
+{{ end -}}
+
 # flox rewrites this at runtime, adding machine-specific absolute paths under
 # [auto_activate_environments]. The one setting worth provisioning
 # (disable_metrics) is applied by 30-flox.sh instead.
