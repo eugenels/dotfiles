@@ -20,6 +20,9 @@ herdr.outputs = "all"
 azure-cli.pkg-path = "azure-cli"
 azure-cli.outputs = "all"
 nodejs.pkg-path = "nodejs"
+# Linux-only: virtual input daemon for Wayland text injection (Handy STT).
+ydotool.pkg-path = "ydotool"
+ydotool.systems = ["aarch64-linux", "x86_64-linux"]
 
 [options]
 systems = ["aarch64-darwin", "x86_64-linux", "aarch64-linux"]
