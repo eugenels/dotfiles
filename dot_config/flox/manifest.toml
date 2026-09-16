@@ -27,6 +27,11 @@ nodejs.pkg-path = "nodejs"
 # Linux-only: virtual input daemon for Wayland text injection (Handy STT).
 ydotool.pkg-path = "ydotool"
 ydotool.systems = ["aarch64-linux", "x86_64-linux"]
+# Linux-only: mesh VPN. The root daemon runs from this env as a system unit,
+# installed by .chezmoiscripts/run_onchange_after_23-tailscaled-linux.sh.tmpl.
+# macOS uses the official app instead, so the CLI is not installed there.
+tailscale.pkg-path = "tailscale"
+tailscale.systems = ["aarch64-linux", "x86_64-linux"]
 
 [options]
 systems = ["aarch64-darwin", "x86_64-linux", "aarch64-linux"]
