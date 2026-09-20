@@ -4,4 +4,4 @@ npm:@gotgenes/pi-github-tools
 npm:pi-web-access
 npm:pi-subagents
 npm:pi-pr-status
-npm:pi-herdr
+npm:@yukikisaku/pi-herdr-status
