@@ -1,36 +1,61 @@
 schema-version = "1.15.0"
 
+# Every package gets its own pkg-group so `flox upgrade` advances each one
+# independently. In a shared group, flox must resolve all members from a single
+# catalog revision, so one slow package (e.g. flox/codex) pins everything.
 [install]
 ripgrep.pkg-path = "ripgrep"
+ripgrep.pkg-group = "ripgrep"
 fd.pkg-path = "fd"
+fd.pkg-group = "fd"
 bat.pkg-path = "bat"
+bat.pkg-group = "bat"
 fzf.pkg-path = "fzf"
+fzf.pkg-group = "fzf"
 jq.pkg-path = "jq"
+jq.pkg-group = "jq"
 jq.outputs = "all"
 eza.pkg-path = "eza"
+eza.pkg-group = "eza"
 gh.pkg-path = "gh"
+gh.pkg-group = "gh"
 yazi.pkg-path = "yazi"
+yazi.pkg-group = "yazi"
 zoxide.pkg-path = "zoxide"
+zoxide.pkg-group = "zoxide"
 neovim.pkg-path = "neovim"
+neovim.pkg-group = "neovim"
 helix.pkg-path = "helix"
+helix.pkg-group = "helix"
 lazygit.pkg-path = "lazygit"
+lazygit.pkg-group = "lazygit"
 direnv.pkg-path = "direnv"
+direnv.pkg-group = "direnv"
 starship.pkg-path = "starship"
-claude-code.pkg-path = "claude-code"
+starship.pkg-group = "starship"
+claude-code.pkg-path = "flox/claude-code"
+claude-code.pkg-group = "claude-code"
 codex.pkg-path = "flox/codex"
+codex.pkg-group = "codex"
 pi-coding-agent.pkg-path = "pi-coding-agent"
+pi-coding-agent.pkg-group = "pi-coding-agent"
 herdr.pkg-path = "herdr"
+herdr.pkg-group = "herdr"
 herdr.outputs = "all"
 azure-cli.pkg-path = "azure-cli"
+azure-cli.pkg-group = "azure-cli"
 azure-cli.outputs = "all"
 nodejs.pkg-path = "nodejs"
+nodejs.pkg-group = "nodejs"
 # Linux-only: virtual input daemon for Wayland text injection (Handy STT).
 ydotool.pkg-path = "ydotool"
+ydotool.pkg-group = "ydotool"
 ydotool.systems = ["aarch64-linux", "x86_64-linux"]
 # Linux-only: mesh VPN. The root daemon runs from this env as a system unit,
 # installed by .chezmoiscripts/run_onchange_after_23-tailscaled-linux.sh.tmpl.
 # macOS uses the official app instead, so the CLI is not installed there.
 tailscale.pkg-path = "tailscale"
+tailscale.pkg-group = "tailscale"
 tailscale.systems = ["aarch64-linux", "x86_64-linux"]
 
 [options]
