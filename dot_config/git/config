@@ -7,3 +7,9 @@
 
 [push]
 	autoSetupRemote = true
+
+[pull]
+	ff = only
+
+[fetch]
+	prune = true

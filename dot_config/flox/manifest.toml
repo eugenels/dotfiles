@@ -1,8 +1,6 @@
 schema-version = "1.15.0"
 
-# Every package gets its own pkg-group so `flox upgrade` advances each one
-# independently. In a shared group, flox must resolve all members from a single
-# catalog revision, so one slow package (e.g. flox/codex) pins everything.
+# Separate groups let packages upgrade independently.
 [install]
 ripgrep.pkg-path = "ripgrep"
 ripgrep.pkg-group = "ripgrep"
@@ -51,9 +49,7 @@ nodejs.pkg-group = "nodejs"
 ydotool.pkg-path = "ydotool"
 ydotool.pkg-group = "ydotool"
 ydotool.systems = ["aarch64-linux", "x86_64-linux"]
-# Linux-only: mesh VPN. The root daemon runs from this env as a system unit,
-# installed by .chezmoiscripts/run_onchange_after_23-tailscaled-linux.sh.tmpl.
-# macOS uses the official app instead, so the CLI is not installed there.
+# Linux-only: on-demand VPN via the fish `vpn` function.
 tailscale.pkg-path = "tailscale"
 tailscale.pkg-group = "tailscale"
 tailscale.systems = ["aarch64-linux", "x86_64-linux"]

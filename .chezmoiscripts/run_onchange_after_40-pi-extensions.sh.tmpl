@@ -1,24 +1,19 @@
 #!/usr/bin/env bash
-#
-# Installs the pi extensions listed in packages/pi-extensions.txt.
-# The list is replayed with `pi install` (idempotent) rather than managing
-# ~/.pi/agent/settings.json, which mixes it with machine-local state.
-#
-# pi-extensions.txt hash: {{ include "packages/pi-extensions.txt" | sha256sum }}
-#
 set -euo pipefail
-
-# pi lives in the home flox env, which is not active under chezmoi.
-if ! command -v flox >/dev/null 2>&1 || [ ! -d "$HOME/.flox" ]; then
-    echo "==> pi extensions: skipped (home flox env missing)"
-    exit 0
-fi
-
-echo "==> pi extensions"
+# Packages: {{ include "packages/pi-extensions.txt" | sha256sum }}
+{{ if eq .chezmoi.os "darwin" -}}
+eval "$(/opt/homebrew/bin/brew shellenv)"
+{{ end -}}
+cd "$HOME"
+flox activate -d "$HOME" -m run -- bash -s -- "{{ .chezmoi.sourceDir }}/packages/pi-extensions.txt" <<'SH'
+set -euo pipefail
 while IFS= read -r source; do
-    case "$source" in
-        ''|'#'*) continue ;;
-    esac
-    echo "    $source"
-    flox activate -d "$HOME" -m run -- pi install "$source" || echo "    ! failed: $source"
-done < "{{ .chezmoi.sourceDir }}/packages/pi-extensions.txt"
+    case "$source" in ''|'#'*) continue ;; esac
+    pi install "$source"
+done < "$1"
+# Remove only the obsolete extension, including pinned or filtered entries.
+obsolete=$(jq -r '.packages[]? | if type == "string" then . else .source end | select(test("^npm:pi-herdr(@|$)"))' "$HOME/.pi/agent/settings.json")
+while IFS= read -r source; do
+    [ -z "$source" ] || pi remove "$source"
+done <<< "$obsolete"
+SH

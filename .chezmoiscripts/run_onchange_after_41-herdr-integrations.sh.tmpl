@@ -1,26 +1,9 @@
 #!/usr/bin/env bash
-#
-# Installs herdr's agent-state hooks. Not managed as files: herdr generates
-# and version-stamps them, so a committed copy would pin a version it later
-# replaces.
-#
-# herdr refuses a target whose agent is not installed (codex, until it is),
-# so failures are reported per target instead of aborting the apply.
-# Hashed against the flox manifest because that is when agents get added
-# or herdr gets upgraded.
-#
-# manifest hash: {{ include "dot_config/flox/manifest.toml" | sha256sum }}
-#
 set -euo pipefail
-
-if ! command -v flox >/dev/null 2>&1 || [ ! -d "$HOME/.flox" ]; then
-    echo "==> herdr integrations: skipped (home flox env missing)"
-    exit 0
-fi
-
-echo "==> herdr integrations"
+# Manifest: {{ include "dot_config/flox/manifest.toml" | sha256sum }}
+{{ if eq .chezmoi.os "darwin" -}}
+eval "$(/opt/homebrew/bin/brew shellenv)"
+{{ end -}}
 for target in claude pi codex; do
-    echo "    $target"
-    flox activate -d "$HOME" -m run -- herdr integration install "$target" \
-        || echo "    ! $target: not installed, skipped"
+    flox activate -d "$HOME" -m run -- herdr integration install "$target"
 done
