@@ -1,5 +1,6 @@
 schema-version = "1.15.0"
 
+# Keep versions unpinned so `flox upgrade` selects the latest available in each catalog.
 # Separate groups let packages upgrade independently.
 [install]
 ripgrep.pkg-path = "ripgrep"
@@ -37,7 +38,7 @@ codex.pkg-path = "flox/codex"
 codex.pkg-group = "codex"
 pi-coding-agent.pkg-path = "pi-coding-agent"
 pi-coding-agent.pkg-group = "pi-coding-agent"
-herdr.pkg-path = "herdr"
+herdr.pkg-path = "flox/herdr"
 herdr.pkg-group = "herdr"
 herdr.outputs = "all"
 azure-cli.pkg-path = "azure-cli"
