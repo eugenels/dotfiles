@@ -4,10 +4,50 @@ onboarding = false
 agent_panel_sort = "spaces"
 show_agent_labels_on_pane_borders = true
 
+# Flexoki: https://github.com/nertzy/herdr-flexoki
+# Upstream revision: 46e2b76ea8d4fc10b28c97ba8d983eb3cba4b5e4
+# Follows the terminal's light/dark appearance.
 [theme]
-# Follows the terminal's light/dark appearance, like Ghostty and Zed.
-# Picking a theme by hand in Settings turns auto_switch back off.
-name = "gruvbox"
 auto_switch = true
-light_name = "gruvbox-light"
-dark_name = "gruvbox"
+
+[theme.custom.light]
+accent = "#24837B"
+panel_bg = "#FFFCF0"
+sidebar_bg = "#F2F0E5"
+active_row_bg = "#E6E4D9"
+selection_bg = "#CECDC3"
+surface0 = "#E6E4D9"
+surface1 = "#DAD8CE"
+surface_dim = "#E6E4D9"
+overlay0 = "#575653"
+overlay1 = "#100F0F"
+text = "#100F0F"
+subtext0 = "#575653"
+mauve = "#5E409D"
+green = "#66800B"
+yellow = "#AD8301"
+red = "#AF3029"
+blue = "#205EA6"
+teal = "#24837B"
+peach = "#BC5215"
+
+[theme.custom.dark]
+accent = "#3AA99F"
+panel_bg = "#100F0F"
+sidebar_bg = "#1C1B1A"
+active_row_bg = "#282726"
+selection_bg = "#403E3C"
+surface0 = "#282726"
+surface1 = "#343331"
+surface_dim = "#282726"
+overlay0 = "#9F9D96"
+overlay1 = "#CECDC3"
+text = "#CECDC3"
+subtext0 = "#9F9D96"
+mauve = "#8B7EC8"
+green = "#879A39"
+yellow = "#D0A215"
+red = "#D14D41"
+blue = "#4385BE"
+teal = "#3AA99F"
+peach = "#DA702C"

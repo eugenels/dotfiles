@@ -5,9 +5,8 @@ font-family = JetBrainsMono Nerd Font Mono
 font-size = 13
 
 # Appearance
-# Follows the macOS system appearance: Gruvbox Light in light mode,
-# Gruvbox Dark in dark mode. Variants: "Gruvbox Dark Hard" / "Gruvbox Light Hard".
-theme = light:Gruvbox Light,dark:Gruvbox Dark
+# Follow system appearance; ANSI colors also theme terminal applications.
+theme = light:Flexoki Light,dark:Flexoki Dark
 window-padding-x = 8
 window-padding-y = 8
 

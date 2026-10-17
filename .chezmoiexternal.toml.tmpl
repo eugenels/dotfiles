@@ -1,4 +1,33 @@
-{{- if eq .chezmoi.os "linux" -}}
+# Official Flexoki theme, pinned for reproducible installs on both platforms.
+[".config/zed/themes/flexoki.json"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/kepano/flexoki/8d723bac4a9ac46adfdf99d42155286977aac72a/zed/themes/flexoki.json"
+    checksum.sha256 = "6ddac50a9df7c4d7b10e446ebe9927f82416e011a8430960dced91e99b262925"
+    refreshPeriod = "8760h"
+
+# Native Neovim package: reproducible, without bootstrapping a plugin manager.
+[".config/nvim/pack/themes/start/flexoki"]
+    type = "archive"
+    url = "https://codeload.github.com/kepano/flexoki-neovim/tar.gz/c3e2251e813d29d885a7cbbe9808a7af234d845d"
+    checksum.sha256 = "7ab7b6e53aa83dfc9cdbfeb240a6600108495f3d70c6d23f5598ffd0b18cc0dc"
+    stripComponents = 1
+    refreshPeriod = "8760h"
+
+[".config/yazi/flavors/flexoki-light.yazi"]
+    type = "archive"
+    url = "https://codeload.github.com/gosxrgxx/flexoki-light.yazi/tar.gz/1b1e67795a3eeec51aec0be74b3d76316be9aaa1"
+    checksum.sha256 = "a65a8d2adef2e86c77d5dd4a8420aa2163ee4ada30658383927086cb46d48f04"
+    stripComponents = 1
+    refreshPeriod = "8760h"
+
+[".config/yazi/flavors/flexoki-dark.yazi"]
+    type = "archive"
+    url = "https://codeload.github.com/gosxrgxx/flexoki-dark.yazi/tar.gz/25d28ce199a5189dbad5d17a526d0ebdece63532"
+    checksum.sha256 = "feba25eac1675d0f62a082dda80b2bb4dc2d246c20d593995b7e53e20f3f099c"
+    stripComponents = 1
+    refreshPeriod = "8760h"
+
+{{ if eq .chezmoi.os "linux" -}}
 # Nerd Fonts aren't packaged in Debian/Ubuntu (apt's fonts-jetbrains-mono is
 # the unpatched upstream font), so they can't live in packages/apt.txt. This
 # is the Linux equivalent of the Brewfile's font-jetbrains-mono-nerd-font cask.

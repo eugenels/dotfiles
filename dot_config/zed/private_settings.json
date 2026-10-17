@@ -57,7 +57,7 @@
   "buffer_font_size": 15,
   "theme": {
     "mode": "system",
-    "light": "Gruvbox Light",
-    "dark": "Gruvbox Dark",
+    "light": "Flexoki Light",
+    "dark": "Flexoki Dark",
   },
 }

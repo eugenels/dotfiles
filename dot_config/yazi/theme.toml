@@ -1,0 +1,4 @@
+# Flavors are pinned and installed by chezmoi; follow terminal appearance.
+[flavor]
+light = "flexoki-light"
+dark = "flexoki-dark"

@@ -1,0 +1,3 @@
+# Helix 25.07 includes both Flexoki variants, but not automatic switching.
+# Switch for this session with :theme flexoki_dark / :theme flexoki_light.
+theme = "flexoki_light"

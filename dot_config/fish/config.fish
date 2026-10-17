@@ -13,6 +13,11 @@ end
 if status is-interactive
     set -g fish_greeting
 
+    # Let fzf inherit the terminal palette without duplicating nested-shell options.
+    if not string match -q '*--color=16*' -- "$FZF_DEFAULT_OPTS"
+        set -gx FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS --color=16"
+    end
+
     if type -q starship
         starship init fish | source
     end

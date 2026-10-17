@@ -1,0 +1,2 @@
+# Inherit the terminal's Flexoki palette, including light/dark changes.
+--theme=ansi
