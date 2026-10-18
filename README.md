@@ -61,15 +61,16 @@ archive on Linux. To bump Linux fonts, update the URL and SHA-256 in
 
 ## Theme
 
-Flexoki follows system/terminal appearance in Ghostty, Zed, Herdr, Neovim,
-and Yazi. Pi's `system` theme and fish/Starship/fzf/bat inherit terminal colors;
+Flexoki follows system/terminal appearance in Ghostty, COSMIC Terminal, Zed,
+Herdr, Neovim, and Yazi. Pi's `system` theme and fish/Starship/fzf/bat inherit terminal colors;
 other terminals must also use Flexoki. Pi's modify template manages only
 `theme`, preserving all other settings.
 
 The app configs and theme downloads work on macOS and Pop!_OS. Ghostty config
-is macOS-only; COSMIC Terminal is intentionally unchanged. On Linux, Pi and
-ANSI-based tools therefore inherit COSMIC's current colors, not necessarily
-Flexoki. Run `chezmoi update` on the other machine to pull and apply changes.
+is macOS-only; COSMIC Terminal config is Linux-only and uses the same palette as
+Ghostty's Flexoki themes. Its color schemes and default themes are managed as
+whole files; the `profiles` modify template only sets each profile's dark/light
+theme. Run `chezmoi update` on the other machine to pull and apply changes.
 
 Helix 25.07 defaults to `flexoki_light` and cannot switch automatically.
 Use `:theme flexoki_dark` / `:theme flexoki_light`, or edit its managed config.
@@ -79,7 +80,7 @@ Theme downloads are pinned and checksummed in `.chezmoiexternal.toml.tmpl`;
 update both revision and SHA-256 when upgrading. Herdr's overrides come from
 `nertzy/herdr-flexoki` (revision recorded in its config).
 
-After applying, reload Ghostty, run `/reload` in Pi and
+After applying, reload Ghostty, reopen COSMIC Terminal, run `/reload` in Pi and
 `herdr server reload-config`, and reopen shells/editors/Yazi. Restart Zed if
 its newly installed theme is not visible.
 

@@ -6,6 +6,11 @@ packages
 .config/ghostty
 {{ end -}}
 
+{{ if ne .chezmoi.os "linux" -}}
+# COSMIC Terminal (Pop!_OS) only.
+.config/cosmic
+{{ end -}}
+
 # flox rewrites this at runtime, adding machine-specific absolute paths under
 # [auto_activate_environments]. The one setting worth provisioning
 # (disable_metrics) is applied by 30-flox.sh instead.

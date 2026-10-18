@@ -1,0 +1,28 @@
+{
+    0: (
+        name: "Flexoki Dark",
+        foreground: "#CECDC3",
+        background: "#100F0F",
+        cursor: "#CECDC3",
+        normal: (
+            black: "#100F0F",
+            red: "#D14D41",
+            green: "#879A39",
+            yellow: "#D0A215",
+            blue: "#4385BE",
+            magenta: "#CE5D97",
+            cyan: "#3AA99F",
+            white: "#878580",
+        ),
+        bright: (
+            black: "#575653",
+            red: "#AF3029",
+            green: "#66800B",
+            yellow: "#AD8301",
+            blue: "#205EA6",
+            magenta: "#A02F6F",
+            cyan: "#24837B",
+            white: "#CECDC3",
+        ),
+    ),
+}

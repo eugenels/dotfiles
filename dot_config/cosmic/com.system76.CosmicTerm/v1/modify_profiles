@@ -1,0 +1,5 @@
+{{- /* chezmoi:modify-template */ -}}
+{{- /* Point every profile at Flexoki; keep all other profile settings. */ -}}
+{{- .chezmoi.stdin
+    | replaceAllRegex `syntax_theme_dark: "[^"]*"` `syntax_theme_dark: "Flexoki Dark"`
+    | replaceAllRegex `syntax_theme_light: "[^"]*"` `syntax_theme_light: "Flexoki Light"` -}}

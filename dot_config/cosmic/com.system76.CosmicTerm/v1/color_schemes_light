@@ -1,0 +1,28 @@
+{
+    0: (
+        name: "Flexoki Light",
+        foreground: "#100F0F",
+        background: "#FFFCF0",
+        cursor: "#100F0F",
+        normal: (
+            black: "#100F0F",
+            red: "#AF3029",
+            green: "#66800B",
+            yellow: "#AD8301",
+            blue: "#205EA6",
+            magenta: "#A02F6F",
+            cyan: "#24837B",
+            white: "#6F6E69",
+        ),
+        bright: (
+            black: "#B7B5AC",
+            red: "#D14D41",
+            green: "#879A39",
+            yellow: "#D0A215",
+            blue: "#4385BE",
+            magenta: "#CE5D97",
+            cyan: "#3AA99F",
+            white: "#CECDC3",
+        ),
+    ),
+}
