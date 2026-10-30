@@ -11,6 +11,11 @@ packages
 .config/cosmic
 {{ end -}}
 
+{{ if not (and (eq .chezmoi.os "linux") (eq .chezmoi.arch "amd64")) -}}
+# The Ollama user service needs Flox ollama-rocm (x86_64 Linux only).
+.config/systemd
+{{ end -}}
+
 # flox rewrites this at runtime, adding machine-specific absolute paths under
 # [auto_activate_environments]. The one setting worth provisioning
 # (disable_metrics) is applied by 30-flox.sh instead.

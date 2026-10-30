@@ -54,6 +54,11 @@ ydotool.systems = ["aarch64-linux", "x86_64-linux"]
 tailscale.pkg-path = "tailscale"
 tailscale.pkg-group = "tailscale"
 tailscale.systems = ["aarch64-linux", "x86_64-linux"]
+# Linux-only (x86_64; the ROCm build exists nowhere else): Ollama for the AMD
+# GPU, served by the `ollama` systemd user service.
+ollama-rocm.pkg-path = "ollama-rocm"
+ollama-rocm.pkg-group = "ollama-rocm"
+ollama-rocm.systems = ["x86_64-linux"]
 
 [options]
 systems = ["aarch64-darwin", "x86_64-linux", "aarch64-linux"]

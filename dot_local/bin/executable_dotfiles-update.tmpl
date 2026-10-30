@@ -12,6 +12,10 @@ sudo apt-get upgrade -y
 flatpak update --user -y
 {{ end -}}
 flox upgrade -d "$HOME"
+{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.arch "amd64") -}}
+# Pick up an upgraded Ollama binary.
+systemctl --user try-restart ollama.service
+{{ end -}}
 flox activate -d "$HOME" -m run -- pi update --extensions --no-approve
 for target in claude pi codex; do
     flox activate -d "$HOME" -m run -- herdr integration install "$target"

@@ -1,0 +1,10 @@
+[Unit]
+Description=Ollama LLM server (Flox ollama-rocm)
+
+[Service]
+ExecStart=%h/.flox/run/x86_64-linux.default-run/bin/ollama serve
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=default.target

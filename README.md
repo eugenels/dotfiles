@@ -29,7 +29,9 @@ Open a new terminal for fish and the home Flox environment.
 
 Scripts install packages, configure Flox, install Pi extensions and herdr
 integrations, and select fish as the login shell. Syncthing starts as a user
-service; its UI is at http://localhost:8384.
+service; its UI is at http://localhost:8384. On x86_64 Linux, Ollama (Flox
+`ollama-rocm`) runs as a user service at http://localhost:11434;
+`dotfiles-update` restarts it after upgrades.
 
 ## Apply and update
 
