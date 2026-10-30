@@ -30,8 +30,10 @@ Open a new terminal for fish and the home Flox environment.
 Scripts install packages, configure Flox, install Pi extensions and herdr
 integrations, and select fish as the login shell. Syncthing starts as a user
 service; its UI is at http://localhost:8384. On x86_64 Linux, Ollama (Flox
-`ollama-rocm`) runs as a user service at http://localhost:11434;
-`dotfiles-update` restarts it after upgrades.
+`ollama-rocm`) runs as a user service at http://localhost:11434 and keeps models
+loaded; `dotfiles-update` restarts it after upgrades. Handy's post-processing
+uses its `dictation-cleanup` model, which setup rebuilds whenever the
+machine-local `~/.config/ollama/Modelfile.dictation-cleanup` changes.
 
 ## Apply and update
 
@@ -88,8 +90,10 @@ its newly installed theme is not visible.
 
 ## Machine-local state
 
-Flox runtime config, Pi settings (except the managed theme), and SSH keys stay
-outside this repository.
+Flox runtime config, Pi settings (except the managed theme), SSH keys and
+Ollama Modelfiles (private prompts) stay outside this repository. Copy
+`~/.config/ollama/Modelfile.dictation-cleanup` to a new machine yourself;
+setup skips the model until it exists.
 Generate `~/.ssh/id_ed25519` on each machine and register its public key with
 GitHub. GitHub CLI manages its credentials; commands needing a token can use
 `GITHUB_TOKEN=$(gh auth token) command` rather than exporting it to every process.

@@ -1,0 +1,21 @@
+{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.arch "amd64") -}}
+{{- $modelfile := joinPath .chezmoi.homeDir ".config/ollama/Modelfile.dictation-cleanup" -}}
+#!/usr/bin/env bash
+set -euo pipefail
+# The Modelfile holds a private prompt, so it stays outside this public
+# repository. Its hash re-runs this script whenever it changes:
+# {{ if stat $modelfile }}{{ include $modelfile | sha256sum }}{{ else }}missing{{ end }}
+modelfile="$HOME/.config/ollama/Modelfile.dictation-cleanup"
+if [ ! -f "$modelfile" ]; then
+    echo "Skipping dictation-cleanup: $modelfile not found." >&2
+    exit 0
+fi
+ollama="$HOME/.flox/run/x86_64-linux.default-run/bin/ollama"
+# 31-ollama-linux.sh may have just restarted the server.
+for _ in $(seq 30); do
+    "$ollama" list >/dev/null 2>&1 && break
+    sleep 1
+done
+"$ollama" pull "$(awk '$1 == "FROM" { print $2; exit }' "$modelfile")"
+"$ollama" create dictation-cleanup -f "$modelfile"
+{{- end -}}

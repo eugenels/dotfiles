@@ -2,6 +2,8 @@
 Description=Ollama LLM server (Flox ollama-rocm)
 
 [Service]
+# Keep models loaded; reloading the dictation model takes ~4 s.
+Environment=OLLAMA_KEEP_ALIVE=-1
 ExecStart=%h/.flox/run/x86_64-linux.default-run/bin/ollama serve
 Restart=on-failure
 RestartSec=3
