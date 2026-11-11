@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 cd "$HOME"
+# Installed by get.chezmoi.io, so no package manager upgrades it.
+chezmoi upgrade
 chezmoi update
 {{ if eq .chezmoi.os "darwin" -}}
 eval "$(/opt/homebrew/bin/brew shellenv)"

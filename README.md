@@ -40,15 +40,15 @@ machine-local `~/.config/ollama/Modelfile.dictation-cleanup` changes.
 
 ```sh
 chezmoi apply       # apply local configuration changes
-dotfiles-update    # pull dotfiles, apply, then upgrade installed packages
+dotfiles-update    # upgrade chezmoi, pull and apply dotfiles, upgrade packages
 ```
 
-`dotfiles-update` upgrades Homebrew or apt + user Flatpaks, the home Flox
-environment, and Pi extensions, then refreshes herdr integrations. It stops
+`dotfiles-update` upgrades chezmoi, Homebrew or apt + user Flatpaks, the home
+Flox environment, and Pi extensions, then refreshes herdr integrations. It stops
 on failure. On Linux, setup installs the Herdr desktop app only when missing;
 the app updates itself and herdr-core, so `dotfiles-update` leaves it alone.
-Commit local dotfile edits before updating; divergent Git history
-requires an explicit merge or rebase.
+`chezmoi update` pulls with `--autostash --rebase`, overriding `pull.ff=only`:
+unpushed dotfile commits are rebased onto the remote, stopping on conflicts.
 
 Unpinned packages track the latest versions available from their configured
 repositories, not necessarily upstream releases. Flox packages have separate

@@ -1,2 +1,9 @@
 {{- /* chezmoi:modify-template */ -}}
-{{- .chezmoi.stdin | default "{}" | fromJson | setValueAtPath "theme" "system" | toPrettyJson }}
+{{- /* Manage only `theme`. Pass the file through untouched when it already
+       matches: rewriting it would reorder Pi's keys and show permanent drift. */ -}}
+{{- $settings := .chezmoi.stdin | default "{}" | fromJson -}}
+{{- if eq (dig "theme" "" $settings) "system" -}}
+{{-   .chezmoi.stdin -}}
+{{- else -}}
+{{-   $settings | setValueAtPath "theme" "system" | toPrettyJson -}}
+{{- end -}}
