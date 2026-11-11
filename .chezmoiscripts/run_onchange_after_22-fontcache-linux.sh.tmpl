@@ -1,6 +1,6 @@
 {{- if eq .chezmoi.os "linux" -}}
 #!/usr/bin/env bash
 set -euo pipefail
-# Fonts: {{ include ".chezmoiexternal.toml.tmpl" | sha256sum }}
+# Fonts: {{ include ".chezmoiexternals/fonts-linux.toml.tmpl" | sha256sum }}
 fc-cache -f "$HOME/.local/share/fonts"
 {{- end -}}

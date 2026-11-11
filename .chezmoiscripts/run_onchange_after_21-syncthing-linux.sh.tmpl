@@ -1,6 +1,5 @@
 {{- if eq .chezmoi.os "linux" -}}
 #!/usr/bin/env bash
 set -euo pipefail
-# Packages: {{ include "packages/apt.txt" | sha256sum }}
 systemctl --user enable --now syncthing.service
 {{- end -}}

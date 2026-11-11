@@ -63,7 +63,7 @@ explicitly.
 
 JetBrainsMono Nerd Font comes from Homebrew on macOS and a checksummed external
 archive on Linux. To bump Linux fonts, update the URL and SHA-256 in
-`.chezmoiexternal.toml.tmpl`, then run `chezmoi apply --refresh-externals`.
+`.chezmoiexternals/fonts-linux.toml.tmpl`, then run `chezmoi apply`.
 
 ## Theme
 
@@ -82,7 +82,7 @@ Helix 25.07 defaults to `flexoki_light` and cannot switch automatically.
 Use `:theme flexoki_dark` / `:theme flexoki_light`, or edit its managed config.
 Neovim's detection can be overridden with `:set background=light` / `dark`.
 
-Theme downloads are pinned and checksummed in `.chezmoiexternal.toml.tmpl`;
+Theme downloads are pinned and checksummed in `.chezmoiexternals/themes.toml`;
 update both revision and SHA-256 when upgrading. Herdr's overrides come from
 `nertzy/herdr-flexoki` (revision recorded in its config).
 

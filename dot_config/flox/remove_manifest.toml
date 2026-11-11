@@ -1,0 +1,3 @@
+# chezmoi ignores this file's contents; its name removes the stale
+# ~/.config/flox/manifest.toml now that the manifest lives in
+# packages/flox-manifest.toml. Delete once every machine has applied it.

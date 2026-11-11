@@ -25,20 +25,3 @@
     url = "https://codeload.github.com/gosxrgxx/flexoki-dark.yazi/tar.gz/25d28ce199a5189dbad5d17a526d0ebdece63532"
     checksum.sha256 = "feba25eac1675d0f62a082dda80b2bb4dc2d246c20d593995b7e53e20f3f099c"
     stripComponents = 1
-
-{{ if eq .chezmoi.os "linux" -}}
-# Nerd Fonts aren't packaged in Debian/Ubuntu (apt's fonts-jetbrains-mono is
-# the unpatched upstream font), so they can't live in packages/apt.txt. This
-# is the Linux equivalent of the Brewfile's font-jetbrains-mono-nerd-font cask.
-#
-# To bump: change the version in the URL and update checksum.sha256 with
-#   curl -sSL <url> | sha256sum
-[".local/share/fonts/JetBrainsMonoNerdFont"]
-    type = "archive"
-    url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.0/JetBrainsMono.tar.xz"
-    checksum.sha256 = "0227b220360a6f819b9ead92343e8112b34733054782561af50cfba1e8afab63"
-    # Terminal/editor variant only: monospaced icons, with ligatures.
-    # Drop the "Mono" for proportional icons, or use "JetBrainsMono*.ttf" for all 98.
-    include = ["JetBrainsMonoNerdFontMono-*.ttf"]
-    exact = true
-{{- end -}}

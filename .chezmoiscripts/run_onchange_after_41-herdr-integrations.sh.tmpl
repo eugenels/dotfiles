@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
-# Manifest: {{ include "dot_config/flox/manifest.toml" | sha256sum }}
+# Reinstall when herdr's Flox entry changes; dotfiles-update covers upgrades.
+# Herdr: {{ regexFindAll "(?m)^herdr\\..*$" (include "packages/flox-manifest.toml") -1 | join "\n" | sha256sum }}
 {{ if eq .chezmoi.os "darwin" -}}
 eval "$(/opt/homebrew/bin/brew shellenv)"
 {{ end -}}

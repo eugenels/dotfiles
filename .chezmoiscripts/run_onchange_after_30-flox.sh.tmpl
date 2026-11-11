@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-# Manifest: {{ include "dot_config/flox/manifest.toml" | sha256sum }}
+# Manifest: {{ include "packages/flox-manifest.toml" | sha256sum }}
 {{ if eq .chezmoi.os "darwin" -}}
 eval "$(/opt/homebrew/bin/brew shellenv)"
 {{ end -}}
@@ -8,4 +8,4 @@ flox config --set disable_metrics true
 if [ ! -d "$HOME/.flox" ]; then
     flox init -d "$HOME"
 fi
-flox edit -d "$HOME" -f "$HOME/.config/flox/manifest.toml"
+flox edit -d "$HOME" -f "{{ .chezmoi.sourceDir }}/packages/flox-manifest.toml"
