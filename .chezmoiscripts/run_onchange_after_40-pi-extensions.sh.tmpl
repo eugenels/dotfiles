@@ -11,9 +11,4 @@ while IFS= read -r source; do
     case "$source" in ''|'#'*) continue ;; esac
     pi install "$source"
 done < "$1"
-# Remove only the obsolete extension, including pinned or filtered entries.
-obsolete=$(jq -r '.packages[]? | if type == "string" then . else .source end | select(test("^npm:pi-herdr(@|$)"))' "$HOME/.pi/agent/settings.json")
-while IFS= read -r source; do
-    [ -z "$source" ] || pi remove "$source"
-done <<< "$obsolete"
 SH

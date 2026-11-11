@@ -57,8 +57,7 @@ remain intentional; the font archive is pinned and checksummed. Flox owns Pi
 itself, so only its extensions are updated through Pi.
 
 Removing a package from a list does not uninstall it. Remove obsolete packages
-explicitly; setup migrates the old `pi-herdr` extension without touching other
-user-installed extensions.
+explicitly.
 
 ## Fonts
 
