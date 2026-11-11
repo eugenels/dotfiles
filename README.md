@@ -2,7 +2,8 @@
 
 Minimal shared setup for an Apple Silicon Mac and Pop!_OS with COSMIC.
 Flox owns portable CLI tools; Homebrew/apt own host dependencies;
-Homebrew/Flatpak own GUI apps. Pop!_OS provides Flatpak.
+Homebrew/Flatpak own GUI apps. Pop!_OS provides Flatpak. The Herdr desktop app
+is not on Flathub, so Linux uses its upstream installer.
 
 ## Bootstrap
 
@@ -44,7 +45,9 @@ dotfiles-update    # pull dotfiles, apply, then upgrade installed packages
 
 `dotfiles-update` upgrades Homebrew or apt + user Flatpaks, the home Flox
 environment, and Pi extensions, then refreshes herdr integrations. It stops
-on failure. Commit local dotfile edits before updating; divergent Git history
+on failure. On Linux, setup installs the Herdr desktop app only when missing;
+the app updates itself and herdr-core, so `dotfiles-update` leaves it alone.
+Commit local dotfile edits before updating; divergent Git history
 requires an explicit merge or rebase.
 
 Unpinned packages track the latest versions available from their configured

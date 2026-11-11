@@ -1,0 +1,13 @@
+{{- if eq .chezmoi.os "linux" -}}
+#!/usr/bin/env bash
+set -euo pipefail
+# Herdr desktop app, the Linux equivalent of the Brewfile's herdr-app cask.
+# It isn't on Flathub, so use upstream's installer: the app goes in
+# ~/.local/share/herdr-app with a launcher entry and `herdr-app` in
+# ~/.local/bin. Install only when missing; the app then updates itself and
+# herdr-core in place.
+[ ! -x "${XDG_DATA_HOME:-$HOME/.local/share}/herdr-app/herdr-app" ] || exit 0
+# Download fully before running, so a cut-off transfer never executes.
+installer=$(curl -fsSL https://releases.herdr.dev/app/install.sh)
+sh -c "$installer"
+{{- end -}}
