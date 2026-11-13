@@ -1,0 +1,5 @@
+{
+  "subscriptions": [
+    { "provider": "anthropic", "index": 2, "label": "second" }
+  ]
+}

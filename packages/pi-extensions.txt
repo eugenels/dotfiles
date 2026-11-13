@@ -5,3 +5,4 @@ npm:pi-web-access
 npm:pi-subagents
 npm:pi-pr-status
 npm:@yukikisaku/pi-herdr-status
+npm:pi-multi-pass

@@ -90,6 +90,24 @@ After applying, reload Ghostty, reopen COSMIC Terminal, run `/reload` in Pi and
 `herdr server reload-config`, and reopen shells/editors/Yazi. Restart Zed if
 its newly installed theme is not visible.
 
+## Second accounts
+
+`claude2` (fish function) runs Claude Code on a second account, alongside
+`claude`. It points `CLAUDE_CONFIG_DIR` at `~/.claude2`, which keeps its own
+login, history and sessions; symlinks share the agent rules
+(`~/.agents/AGENTS.md`) and `settings.json` with `~/.claude`.
+
+Pi uses pi-multi-pass instead: the second Claude subscription is the
+`anthropic-2` provider in the same Pi, so sessions, settings and other logins
+stay shared. Start on it with `pi --model anthropic-2/<model>`, switch a running
+session with `/model`, or `/pool create` to rotate on rate limits.
+pi-anthropic-auth's config shapes `anthropic-2` like `anthropic`, so it bills
+as subscription usage. `multi-pass.json` is only seeded when missing, so
+`/subs` and `/pool` changes stay local.
+
+Log in once per machine: run `claude2`, and in Pi run `/login` and pick
+Anthropic #2.
+
 ## Machine-local state
 
 Flox runtime config, Pi settings (except the managed theme), SSH keys and
