@@ -24,3 +24,10 @@ packages
 # [auto_activate_environments]. The one setting worth provisioning
 # (disable_metrics) is applied by 30-flox.sh instead.
 .config/flox/flox.toml
+
+# Logins and account state; this repository is public.
+.claude.json
+.claude/.credentials.json
+.claude2/.credentials.json
+.claude2/.claude.json
+.pi/agent/auth.json
